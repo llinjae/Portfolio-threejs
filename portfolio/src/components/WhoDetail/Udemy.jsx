@@ -16,8 +16,11 @@ const ListItem = styled.li`
 const Udemy = () => {
   return (
     <List>
-      <ListItem>The Web Developer 부트캠프 2023</ListItem>
       <ListItem>React 완벽 가이드 with Redux, Next.js, TypeScript</ListItem>
+      <ListItem>Next.js & React - 완벽 정복 가이드</ListItem>
+      <ListItem>React Query : React로 서버 상태 관리하기</ListItem>
+      <ListItem>The Web Developer 부트캠프 2023</ListItem>
+      <ListItem>JavaScript Web Projects: 20 Projects</ListItem>
     </List>
   );
 };

@@ -18,6 +18,7 @@ const Inflearn = () => {
     <List>
       <ListItem>인터랙티브 개발 실무 끝장내기</ListItem>
       <ListItem>Three.js 3D 인터랙티브 바로 시작하기</ListItem>
+      <ListItem>웹 게임을 만들며 배우는 TypeScript</ListItem>
     </List>
   );
 };

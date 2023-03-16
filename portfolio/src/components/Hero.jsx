@@ -89,7 +89,8 @@ const Hero = () => {
             <Subtitle>소개</Subtitle>
           </WhatWeDo>
           <Desc>
-            웹 프론트엔드를 공부하고 있는 신입 개발자 <br /> 이인재 입니다.
+            웹 프론트엔드 신입 개발자 <b style={{ fontSize: '30px' }}>이인재</b>{' '}
+            입니다.
             <br />
             항상 어떻게 구현할지 고민하며 문제를 해결합니다.
           </Desc>
@@ -97,7 +98,10 @@ const Hero = () => {
             <Line src='./img/line.png' />
             <Subtitle>기술 스택</Subtitle>
           </WhatWeDo>
-          <Desc>HTML/CSS, JavaScript, TypeScript, React, Recoil <br /> NextJS, Emotion JS, styled-components</Desc>
+          <Desc>
+            HTML/CSS, JavaScript, TypeScript, React, Recoil <br /> NextJS,
+            Emotion JS, styled-components
+          </Desc>
         </Left>
         <Right>
           <Canvas>

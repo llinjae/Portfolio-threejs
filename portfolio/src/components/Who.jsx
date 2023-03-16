@@ -6,6 +6,8 @@ import ModelAni from './Model-ani';
 import Udemy from './WhoDetail/Udemy';
 import Inflearn from './WhoDetail/Inflearn';
 import ZeroBase from './WhoDetail/ZeroBase';
+import Youtube from './WhoDetail/Youtube';
+import Book from './WhoDetail/Book';
 
 const Section = styled.div`
   height: 100vh;
@@ -82,7 +84,7 @@ const DeatailRight = styled.div`
   flex: 3;
 `;
 
-const data = ['udemy', 'inflearn', 'zero-base'];
+const data = ['udemy', 'inflearn', 'zero-base', 'youtube', 'book'];
 
 const Who = () => {
   const [education, setEducation] = useState('udemy');
@@ -125,8 +127,12 @@ const Who = () => {
                 <Udemy />
               ) : education === 'inflearn' ? (
                 <Inflearn />
-              ) : (
+              ) : education === 'zero-base' ? (
                 <ZeroBase />
+              ) : education === 'youtube' ? (
+                <Youtube />
+              ) : (
+                <Book />
               )}
             </DeatailRight>
           </div>
