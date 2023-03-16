@@ -1,5 +1,11 @@
-import React from 'react';
+import { OrbitControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import ModelAni from './Model-ani';
+import Udemy from './WhoDetail/Udemy';
+import Inflearn from './WhoDetail/Inflearn';
+import ZeroBase from './WhoDetail/ZeroBase';
 
 const Section = styled.div`
   height: 100vh;
@@ -19,9 +25,11 @@ const Container = styled.div`
 
 const Left = styled.div`
   flex: 1;
+  position: relative;
 `;
+
 const Title = styled.h1`
-  font-size: 74px;
+  font-size: 54px;
 `;
 
 const Right = styled.div`
@@ -46,37 +54,82 @@ const Subtitle = styled.h2`
   color: #da4ea2;
 `;
 
-const Desc = styled.p`
-  font-size: 24px;
-  color: lightgray;
+const DetailLeft = styled.div`
+  flex: 1;
+  display: flex;
 `;
 
-const Button = styled.button`
-  background-color: #da4ea2;
-  color: white;
-  font-weight: 500;
-  width: 120px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+const List = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
+
+const ListItem = styled.li`
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: pink;
+  }
+`;
+
+const DeatailRight = styled.div`
+  flex: 3;
+`;
+
+const data = ['udemy', 'inflearn', 'zero-base'];
 
 const Who = () => {
+  const [education, setEducation] = useState('udemy');
   return (
-    <Section>
+    <Section id='who'>
       <Container>
-        <Left>{/* 3d model */}</Left>
+        <Left>
+          <Canvas camera={{ position: [2, 0, 12.25], fov: 15, scale: '2' }}>
+            <ambientLight intensity={1.25} />
+            <ambientLight intensity={0.1} />
+            <directionalLight intensity={0.9} />
+            <ModelAni position={[0.025, -0.9, 0]} />
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+        </Left>
         <Right>
-          <Title>Think outside the square space</Title>
+          <Title>
+            다양하고 <br /> 깊게 배우려고 <br /> 노력하는 개발자
+          </Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
-            <Subtitle>What we Are</Subtitle>
+            <Subtitle>교육 사항</Subtitle>
           </WhatWeDo>
-          <Desc>
-            a creative group of designers and developers with a passion for the arts.
-          </Desc>
-          <Button>See our works</Button>
+          <div style={{ display: 'flex' }}>
+            <DetailLeft>
+              <List>
+                {data.map((item) => (
+                  <ListItem
+                    key={item}
+                    text={item}
+                    onClick={() => setEducation(item)}
+                  >
+                    {item}
+                  </ListItem>
+                ))}
+              </List>
+            </DetailLeft>
+            <DeatailRight>
+              {education === 'udemy' ? (
+                <Udemy />
+              ) : education === 'inflearn' ? (
+                <Inflearn />
+              ) : (
+                <ZeroBase />
+              )}
+            </DeatailRight>
+          </div>
         </Right>
       </Container>
     </Section>

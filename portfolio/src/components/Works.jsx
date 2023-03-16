@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Bookmark from './Bookmark';
+import PlayBook from './PlayBook';
+import Vintage from './Vintage';
+import YoutubeClone from './YoutubeClone';
 
-const data = [
-  'Web Design',
-  'Development',
-  'Illustration',
-  'Product Design',
-  'Social Media',
-];
+const data = ['PlayBook', 'YoutubeClone', 'Vintage', 'Bookmark'];
 
 const Section = styled.div`
   height: 100vh;
@@ -72,19 +70,30 @@ const Right = styled.div`
 `;
 
 const Works = () => {
+  const [work, setWork] = useState('PlayBook');
   return (
-    <Section>
+    <Section id='projects'>
       <Container>
         <Left>
           <List>
             {data.map((item) => (
-              <ListItem key={item} text={item}>
+              <ListItem key={item} text={item} onClick={() => setWork(item)}>
                 {item}
               </ListItem>
             ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>
+          {work === 'PlayBook' ? (
+            <PlayBook />
+          ) : work === 'YoutubeClone' ? (
+            <YoutubeClone />
+          ) : work === 'Vintage' ? (
+            <Vintage />
+          ) : (
+            <Bookmark />
+          )}
+        </Right>
       </Container>
     </Section>
   );

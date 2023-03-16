@@ -1,3 +1,5 @@
+import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from './Navbar';
@@ -27,7 +29,7 @@ const Left = styled.div`
   gap: 20px;
 `;
 const Title = styled.h1`
-  font-size: 74px;
+  font-size: 65px;
 `;
 
 const WhatWeDo = styled.div`
@@ -49,17 +51,6 @@ const Desc = styled.p`
   color: lightgray;
 `;
 
-const Button = styled.button`
-  background-color: #da4ea2;
-  color: white;
-  font-weight: 500;
-  width: 100px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-`;
-
 const Right = styled.div`
   flex: 3;
   position: relative;
@@ -79,29 +70,49 @@ const Img = styled.img`
 
   @keyframes animate {
     to {
-      transform: translateY(20px)
+      transform: translateY(20px);
     }
   }
 `;
 
 const Hero = () => {
   return (
-    <Section>
+    <Section id='home'>
       <Navbar />
       <Container>
         <Left>
-          <Title>Think. Make. Solve.</Title>
+          <Title>
+            생각하고, <br /> 구현하고, <br /> 해결하는 개발자
+          </Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
-            <Subtitle>What we Do</Subtitle>
+            <Subtitle>소개</Subtitle>
           </WhatWeDo>
           <Desc>
-            we enjoy creating delightful, human-centered digital experiences.
+            웹 프론트엔드를 공부하고 있는 신입 개발자 <br /> 이인재 입니다.
+            <br />
+            항상 어떻게 구현할지 고민하며 문제를 해결합니다.
           </Desc>
-          <Button>Learn More</Button>
+          <WhatWeDo>
+            <Line src='./img/line.png' />
+            <Subtitle>기술 스택</Subtitle>
+          </WhatWeDo>
+          <Desc>HTML/CSS, JavaScript, TypeScript, React, Recoil <br /> NextJS, Emotion JS, styled-components</Desc>
         </Left>
         <Right>
-          {/* 3d model */}
+          <Canvas>
+            <OrbitControls enableZoom={false} />
+            <ambientLight intensity={1} />
+            <directionalLight position={[3, 2, 1]} />
+            <Sphere args={[1, 100, 200]} scale={2.8}>
+              <MeshDistortMaterial
+                color='#3d1c56'
+                attach='material'
+                distort={0.5}
+                speed={2}
+              />
+            </Sphere>
+          </Canvas>
           <Img src='./img/moon.png' />
         </Right>
       </Container>
