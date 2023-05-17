@@ -4,8 +4,15 @@ import Bookmark from './Bookmark';
 import PlayBook from './PlayBook';
 import Vintage from './Vintage';
 import YoutubeClone from './YoutubeClone';
+import EmotionDiary from './EmotionDiary';
 
-const data = ['PlayBook', 'YoutubeClone', 'Vintage', 'Bookmark'];
+const data = [
+  'PlayBook',
+  'EmotionDiary',
+  'YoutubeClone',
+  'Vintage',
+  'Bookmark',
+];
 
 const Section = styled.div`
   height: 100vh;
@@ -86,6 +93,8 @@ const Works = () => {
         <Right>
           {work === 'PlayBook' ? (
             <PlayBook />
+          ) : work === 'EmotionDiary' ? (
+            <EmotionDiary />
           ) : work === 'YoutubeClone' ? (
             <YoutubeClone />
           ) : work === 'Vintage' ? (
