@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Bookmark from './Bookmark';
+import EmotionDiary from './EmotionDiary';
 import PlayBook from './PlayBook';
-import Vintage from './Vintage';
 import YoutubeClone from './YoutubeClone';
 
-const data = ['PlayBook', 'YoutubeClone', 'Vintage', 'Bookmark'];
+const data = ['PlayBook', 'YoutubeClone', 'EmotionDiary'];
 
 const Section = styled.div`
+  width: 100vw;
   height: 100vh;
+  margin: 0 auto;
   scroll-snap-align: center;
   display: flex;
   justify-content: center;
 `;
 
 const Container = styled.div`
-  width: 1400px;
+  width: 90%;
+  height: 100vh;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20%;
+  }
 `;
 
 const Left = styled.div`
@@ -31,6 +39,11 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding-bottom: 10%;
+  }
 `;
 
 const ListItem = styled.li`
@@ -41,6 +54,22 @@ const ListItem = styled.li`
   -webkit-text-stroke: 1px white;
   position: relative;
 
+  @media (max-width: 1400px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
+
   ::after {
     content: '${(props) => props.text}';
     position: absolute;
@@ -50,6 +79,22 @@ const ListItem = styled.li`
     width: 0;
     overflow: hidden;
     white-space: nowrap;
+
+    @media (max-width: 1400px) {
+      font-size: 60px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 50px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 15px;
+    }
   }
 
   &:hover {
@@ -88,10 +133,8 @@ const Works = () => {
             <PlayBook />
           ) : work === 'YoutubeClone' ? (
             <YoutubeClone />
-          ) : work === 'Vintage' ? (
-            <Vintage />
           ) : (
-            <Bookmark />
+            <EmotionDiary />
           )}
         </Right>
       </Container>

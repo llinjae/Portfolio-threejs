@@ -1,14 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AiOutlineGithub } from 'react-icons/ai';
-import main from '../asset/main.gif';
-import performance from '../asset/performance.gif';
-import description from '../asset/description.gif';
-import bookmark from '../asset/bookmark.gif';
-import reservation from '../asset/reservation.gif';
-import signin from '../asset/signin.gif';
-import register from '../asset/register.gif';
-import chat from '../asset/chat.gif';
+import main from '../asset/메인.gif'
+import filter from '../asset/필터.gif';
+import description from '../asset/상세페이지.gif';
+import edit from '../asset/수정페이지.gif';
+import { AiOutlineGithub, AiOutlineLink } from 'react-icons/ai';
 
 const Container = styled.div`
   width: 100%;
@@ -74,22 +70,23 @@ const Content = styled.div`
 
 const data = [
   { id: 0, title: '메인 화면', src: main },
-  { id: 1, title: '공연 소개', src: performance },
+  { id: 1, title: '필터', src: filter },
   { id: 2, title: '상세페이지', src: description },
-  { id: 3, title: '북마크', src: bookmark },
-  { id: 4, title: '공연 예약', src: reservation },
-  { id: 5, title: '로그인', src: signin },
-  { id: 6, title: '회원 가입', src: register },
-  { id: 7, title: '고객센터', src: chat },
+  { id: 3, title: '수정페이지', src: edit },
 ];
 
-const PlayBook = () => {
+const Bookmark = () => {
   return (
     <Container>
       <TitleBox>
-        <Head>공연 예약 페이지 구현</Head>
+        <Head>감성일기장 구현</Head>
         <i>
-          <Link href='https://github.com/JKKook/team_project_playbook'>
+          <Link href='https://llinjae-emotion-diary.web.app/'>
+            <AiOutlineLink />
+          </Link>
+        </i>
+        <i>
+          <Link href='https://github.com/llinjae/EmotionDiary'>
             <AiOutlineGithub />
           </Link>
         </i>
@@ -106,4 +103,4 @@ const PlayBook = () => {
   );
 };
 
-export default PlayBook;
+export default Bookmark;

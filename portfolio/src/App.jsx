@@ -5,7 +5,9 @@ import Who from './components/Who';
 import Works from './components/Works';
 
 const Container = styled.div`
+  width: 100vw;
   height: 100vh;
+  margin: 0 auto;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-y: auto;

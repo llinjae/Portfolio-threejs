@@ -20,7 +20,7 @@ const Section = styled.div`
 const Container = styled.div`
   height: 100vh;
   scroll-snap-align: center;
-  width: 1400px;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 `;
@@ -28,10 +28,32 @@ const Container = styled.div`
 const Left = styled.div`
   flex: 1;
   position: relative;
+
+  @media (max-width: 1400px) {
+    bottom: 10%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 54px;
+
+  @media (max-width: 1024px) {
+    font-size: 45px;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 10%;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 40px;
+  }
 `;
 
 const Right = styled.div`
@@ -46,15 +68,50 @@ const WhatWeDo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const Line = styled.img`
   height: 5px;
+
+  @media (max-width: 1024px) {
+    height: 3px;
+  }
 `;
 
 const Subtitle = styled.h2`
   color: #da4ea2;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 17px;
+  }
 `;
+
+const EducationBox= styled.div`
+  display: flex;
+
+  @media (max-width: 1024px) {
+    gap: 5%;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 5%;
+    padding-left: 20%;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 5%;
+    padding-left: 5%;
+  }
+`
 
 const DetailLeft = styled.div`
   flex: 1;
@@ -74,9 +131,18 @@ const ListItem = styled.li`
   cursor: pointer;
   position: relative;
   transition: all 0.5s ease;
+  color: gray;
 
   &:hover {
     color: pink;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 16px;
   }
 `;
 
@@ -107,8 +173,9 @@ const Who = () => {
           <WhatWeDo>
             <Line src='./img/line.png' />
             <Subtitle>교육 사항</Subtitle>
+            <Line src='./img/line.png' />
           </WhatWeDo>
-          <div style={{ display: 'flex' }}>
+          <EducationBox>
             <DetailLeft>
               <List>
                 {data.map((item) => (
@@ -135,7 +202,7 @@ const Who = () => {
                 <Book />
               )}
             </DeatailRight>
-          </div>
+          </EducationBox>
         </Right>
       </Container>
     </Section>

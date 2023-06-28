@@ -5,10 +5,19 @@ import { AiOutlineGithub, AiOutlineLink } from 'react-icons/ai';
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  padding-top: 100px;
+  padding-top: 15%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 30px;
+
+  @media (max-width: 1400px) {
+    padding-top: 30%;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 0%;
+  }
 `;
 
 const TitleBox = styled.section`
@@ -16,6 +25,12 @@ const TitleBox = styled.section`
   justify-content: center;
   align-items: center;
   gap: 10px;
+`;
+
+const Head = styled.h2`
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Link = styled.a`
@@ -31,6 +46,10 @@ const Link = styled.a`
   &:hover {
     color: #fff;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Content = styled.div`
@@ -38,7 +57,11 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  height: 500px;
+  height: 60vh;
+
+  @media (max-width: 1400px) {
+    width: 100%;
+  }
 `;
 
 const data = [
@@ -50,7 +73,7 @@ const YoutubeClone = () => {
   return (
     <Container>
       <TitleBox>
-        <h2>YouTube 클론</h2>
+        <Head>YouTube 클론</Head>
         <i>
           <Link href='https://youtube-clone-llinjae.vercel.app'>
             <AiOutlineLink />
@@ -65,8 +88,8 @@ const YoutubeClone = () => {
       <Content>
         {data.map((item) => (
           <>
-            <h3 style={{ margin: '50px 0' }}>{item.title}</h3>
-            <img src={item.src} alt='item' width={600} height={400} />
+            <h3 className='contentTitle'>{item.title}</h3>
+            <img className='contentImg' src={item.src} alt='item' />
           </>
         ))}
       </Content>

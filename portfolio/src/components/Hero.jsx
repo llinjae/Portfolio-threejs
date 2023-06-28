@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import Navbar from './Navbar';
 
 const Section = styled.div`
+  width: 100vw;
   height: 100vh;
+  margin: 0 auto;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
@@ -14,11 +16,13 @@ const Section = styled.div`
 `;
 
 const Container = styled.div`
+  width: 90%;
   height: 100vh;
   scroll-snap-align: center;
-  width: 1400px;
   display: flex;
   justify-content: space-between;
+  gap: 5%;
+
 `;
 
 const Left = styled.div`
@@ -27,9 +31,32 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
+
 const Title = styled.h1`
   font-size: 65px;
+
+  @media (max-width: 1400px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 10%;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 40px;
+  }
 `;
 
 const WhatWeDo = styled.div`
@@ -40,20 +67,88 @@ const WhatWeDo = styled.div`
 
 const Line = styled.img`
   height: 5px;
+
+  @media (max-width: 1024px) {
+    height: 3px;
+  }
+
+  @media (max-width: 500px) {
+    height: 2px;
+  }
 `;
 
 const Subtitle = styled.h2`
   color: #da4ea2;
+
+  @media (max-width: 1400px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 
 const Desc = styled.p`
+  word-wrap: wrap;
   font-size: 24px;
   color: lightgray;
+
+  @media (max-width: 1400px) {
+    font-size: 21px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
+`;
+
+const Bold = styled.b`
+  font-size: 30px;
+
+  @media (max-width: 1400px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 19px;
+  }
 `;
 
 const Right = styled.div`
+  width: 100vw;
+  height: 100vh;
   flex: 3;
   position: relative;
+
+  @media (max-width: 1400px) {
+    max-width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Img = styled.img`
@@ -73,6 +168,15 @@ const Img = styled.img`
       transform: translateY(20px);
     }
   }
+
+  @media (max-width: 1400px) {
+    width: 80%;
+    bottom: 20%;
+  }
+  
+  @media (max-width: 1024px) {
+    bottom: 15%;
+  }
 `;
 
 const Hero = () => {
@@ -82,14 +186,15 @@ const Hero = () => {
       <Container>
         <Left>
           <Title>
-            생각하고, <br /> 구현하고, <br /> 해결하는 개발자
+            생각하고, <br /> 구현하고, <br /> 해결하는 <br /> 개발자
           </Title>
           <WhatWeDo>
             <Line src='./img/line.png' />
             <Subtitle>소개</Subtitle>
+            <Line src='./img/line.png' />
           </WhatWeDo>
           <Desc>
-            웹 프론트엔드 신입 개발자 <b style={{ fontSize: '30px' }}>이인재</b>{' '}
+            웹 프론트엔드 신입 개발자 <Bold>이인재</Bold>{' '}
             입니다.
             <br />
             항상 어떻게 구현할지 고민하며 문제를 해결합니다.
@@ -97,14 +202,15 @@ const Hero = () => {
           <WhatWeDo>
             <Line src='./img/line.png' />
             <Subtitle>기술 스택</Subtitle>
+            <Line src='./img/line.png' />
           </WhatWeDo>
           <Desc>
-            HTML/CSS, JavaScript, TypeScript, React, Recoil <br /> NextJS,
-            Emotion JS, styled-components
+            HTML/CSS, JavaScript, TypeScript, React, Recoil, NextJS, Emotion JS,
+            styled-components
           </Desc>
         </Left>
         <Right>
-          <Canvas>
+          <Canvas style={{ height: '90%' }}>
             <OrbitControls enableZoom={false} />
             <ambientLight intensity={1} />
             <directionalLight position={[3, 2, 1]} />

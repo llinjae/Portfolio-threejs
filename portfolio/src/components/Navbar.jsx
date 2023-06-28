@@ -7,8 +7,10 @@ const Section = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1400px;
+  position: fixed;
+  width: 90%;
   padding: 20px 0px;
+  z-index: 10;
 `;
 
 const Links = styled.div`
@@ -16,18 +18,36 @@ const Links = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 50px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-around;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: 600;
   color: #454789;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const List = styled.ul`
   display: flex;
   gap: 20px;
   list-style: none;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 30%;
+  }
+
+  @media (max-width: 500px) {
+    gap: 20%;
+  }
 `;
 
 const ListItem = styled.li`

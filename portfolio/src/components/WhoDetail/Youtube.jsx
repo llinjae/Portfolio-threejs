@@ -11,6 +11,10 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-size: 15px;
   color: white;
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
 `;
 
 const Youtube = () => {
