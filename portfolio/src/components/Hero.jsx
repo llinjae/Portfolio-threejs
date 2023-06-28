@@ -38,11 +38,7 @@ const Left = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 65px;
-
-  @media (max-width: 1400px) {
-    font-size: 50px;
-  }
+  font-size: 50px;
 
   @media (max-width: 1024px) {
     font-size: 40px;
